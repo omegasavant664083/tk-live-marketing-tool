@@ -1,0 +1,57 @@
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.madhub.tklivemarketingtool">
+
+    <!-- Problem: The app needs to access the internet to support 24/7 automated operations. 
+         Solution: Declaring INTERNET permission enables network communication with social media platforms. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- Problem: The app may need to read and write user data, such as images or media files.
+         Solution: Declaring WRITE_EXTERNAL_STORAGE and READ_EXTERNAL_STORAGE permissions allows the app to manage user content effectively. -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Problem: The app requires the ability to operate continuously in the background.
+         Solution: This permission allows the app to use background services for uninterrupted automation tasks. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="tk live marketing tool - Android Automation Tool"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MadHub">
+
+        <!-- Problem: The entry point of the application needs to be defined for user interaction.
+             Solution: Registering MainActivity ensures users can launch the app seamlessly. -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Problem: The app must perform scheduled tasks and automate interactions with various social media platforms.
+             Solution: Registering AutomationService ensures that the app can run background tasks to manage social media interactions effectively. -->
+        <service
+            android:name=".AutomationService"
+            android:exported="false"
+            android:enabled="true">
+        </service>
+
+    </application>
+</manifest>
+```
+
+### Explanation of Key Components:
+- **Permissions**: Each of the required permissions is declared with a problem-solving comment. For example, the `INTERNET` permission is crucial for enabling network communication, which directly addresses the need for continuous automated operations in managing social media tasks.
+  
+- **Activity Registration**: `MainActivity` is set as the launch point, allowing users to easily start the application.
+
+- **Service Registration**: The `AutomationService` is registered to handle background tasks crucial for the app's functionality. This component is essential for maintaining the automation features that MadHub offers, allowing for seamless interaction with various social media platforms without user intervention.
+
+The configuration follows best practices for Android app development while addressing specific problems that the app intends to solve.
